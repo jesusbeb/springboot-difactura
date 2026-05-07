@@ -1,16 +1,21 @@
 package com.jesusbeb.curso.springboot.factura.springboot_difactura.models;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Client {
 
+    // Para los atributos name y lastname inyectamos los valores de las propiedades client.name y client.lastname respectivamente, que se encuentran en el archivo data.properties
+
+    @Value("${client.name}")
     private String name;
 
+    @Value("${client.lastname}")
     private String lastname;
 
 
-    
+
     public String getName() {
         return name;
     }
