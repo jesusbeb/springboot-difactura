@@ -15,6 +15,8 @@ public class Invoice {
     @Value("${invoice.description}")
     private String description;
 
+    // Para la lista de items, inyectamos la lista de items que se encuentra en el método itemsInvoice() de la clase AppConfig
+    @Autowired
     private List<Item> items;
 
 
