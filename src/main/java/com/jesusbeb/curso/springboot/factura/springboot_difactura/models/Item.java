@@ -7,7 +7,7 @@ public class Item {
     private Integer quantity;
 
 
-    
+
     public Item(Product product, Integer quantity) {
         this.product = product;
         this.quantity = quantity;
@@ -29,6 +29,12 @@ public class Item {
     }
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+
+
+    public int getImport() {
+        return quantity * product.getPrice().intValue();
     }
 
 }

@@ -12,7 +12,7 @@ import com.jesusbeb.curso.springboot.factura.springboot_difactura.models.Product
 
 // Esta clase es la encargada de cargar el archivo data.properties, que contiene las propiedades client.name y client.lastname, que son inyectadas en la clase Client
 @Configuration
-@PropertySource("classpath:data.properties")
+@PropertySource(value = "classpath:data.properties", encoding = "UTF-8")
 public class AppConfig {
 
     // Este método es el encargado de cargar la lista de items, que es inyectada en la clase Invoice

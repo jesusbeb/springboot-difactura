@@ -20,6 +20,10 @@ public class Invoice {
     private List<Item> items;
 
 
+    
+    public Client getClient() {
+        return client;
+    }
 
     public void setClient(Client client) {
         this.client = client;
