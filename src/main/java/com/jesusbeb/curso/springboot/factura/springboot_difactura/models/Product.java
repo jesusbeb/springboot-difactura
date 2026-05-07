@@ -1,13 +1,10 @@
 package com.jesusbeb.curso.springboot.factura.springboot_difactura.models;
 
-import org.springframework.stereotype.Component;
-
-@Component
-public class Client {
+public class Product {
 
     private String name;
 
-    private String lastname;
+    private Double price;
 
 
     
@@ -19,12 +16,12 @@ public class Client {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
 }
