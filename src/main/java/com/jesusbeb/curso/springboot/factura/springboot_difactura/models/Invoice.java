@@ -45,4 +45,17 @@ public class Invoice {
         this.items = items;
     }
 
+    
+    public Double getTotal() {
+        //Double total = 0.0;
+        // Para cada Item llamado item de la lista items.
+        //for (Item item : items) {
+        //    total += item.getImport();
+        //}
+        //return total;
+
+        // Otro metodo con stream y lambda 
+        return items.stream().mapToDouble(item -> item.getImport()).sum();
+    }
+
 }

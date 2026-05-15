@@ -20,6 +20,8 @@ public class AppConfig {
     List<Item> itemsInvoice() {
         Product p1 = new Product("Camara Sony", 800.0);
         Product p2 = new Product("Bicicleta Bianchi 26", 1200.0);
+
+        // Retorna una lista de items (invoice), donde cada item tiene un producto y una cantidad
         return Arrays.asList(new Item(p1, 2), new Item(p2, 4));
     }
 
