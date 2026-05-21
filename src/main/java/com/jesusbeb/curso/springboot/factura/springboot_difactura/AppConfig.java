@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 
 import com.jesusbeb.curso.springboot.factura.springboot_difactura.models.Item;
@@ -23,6 +24,18 @@ public class AppConfig {
 
         // Retorna una lista de items (invoice), donde cada item tiene un producto y una cantidad
         return Arrays.asList(new Item(p1, 2), new Item(p2, 4));
+    }
+
+    @Bean
+    @Primary
+    List<Item> itemsInvoiceOficina() {
+        Product p1 = new Product("Monitor Asus 24", 700.0);
+        Product p2 = new Product("Notebook Racer", 2400.0);
+        Product p3 = new Product("Impresora HP", 800.0);
+        Product p4 = new Product("Escritorio Oficina", 900.0);
+
+        // Retorna una lista de items (invoice), donde cada item tiene un producto y una cantidad
+        return Arrays.asList(new Item(p1, 4), new Item(p2, 6) , new Item(p3, 1) , new Item(p4, 4));
     }
 
 }

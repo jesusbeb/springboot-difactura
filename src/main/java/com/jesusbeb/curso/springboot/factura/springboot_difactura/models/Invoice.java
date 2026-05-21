@@ -12,7 +12,7 @@ public class Invoice {
     @Autowired
     private Client client;
 
-    @Value("${invoice.description}")
+    @Value("${invoice.description.office}")
     private String description;
 
     // Para la lista de items, inyectamos la lista de items que se encuentra en el método itemsInvoice() de la clase AppConfig
