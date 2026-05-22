@@ -6,19 +6,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import jakarta.annotation.PostConstruct;
+
 @Component
 public class Invoice {
 
     @Autowired
     private Client client;
 
-    @Value("${invoice.description.office}")
+    @Value("${invoice.description}")
     private String description;
 
     // Para la lista de items, inyectamos la lista de items que se encuentra en el método itemsInvoice() de la clase AppConfig
     @Autowired
     private List<Item> items;
 
+
+    // Si intentamos mostrar el cliente y la descripción en el constructor, veremos que el cliente y la descripción son null, ya que las dependencias aún no han sido inyectadas.
+    public Invoice() {
+        System.out.println("Creando el componente de la factura con el constructor vacio");
+        System.out.println(client);
+        System.out.println(description);
+    }
+
+
+    // El método init() se ejecuta después de que se hayan inyectado las dependencias, es decir, después de que se haya creado el bean y se hayan inyectado las dependencias.
+    @PostConstruct
+    public void init() {
+        System.out.println("Creando el componente de la factura usando PostConstruct");
+        client.setName(client.getName().concat(" Pepe")); // Estas modificaciones son visibles al hacer la peticion con el controller
+        description = description.concat(" del cliente: ").concat(client.getName()).concat(" ").concat(client.getLastname());
+    }
 
     
     public Client getClient() {
