@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
 @Component
 public class Invoice {
@@ -29,13 +30,19 @@ public class Invoice {
         System.out.println(description);
     }
 
-
     // El método init() se ejecuta después de que se hayan inyectado las dependencias, es decir, después de que se haya creado el bean y se hayan inyectado las dependencias.
     @PostConstruct
     public void init() {
         System.out.println("Creando el componente de la factura usando PostConstruct");
         client.setName(client.getName().concat(" Pepe")); // Estas modificaciones son visibles al hacer la peticion con el controller
         description = description.concat(" del cliente: ").concat(client.getName()).concat(" ").concat(client.getLastname());
+    }
+
+    // El método destroy() se ejecuta antes de que el bean sea destruido, es decir, antes de que el contenedor de Spring lo elimine de la memoria.
+    // Este método es útil para liberar recursos o realizar tareas de limpieza antes de que el bean sea destruido.
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Destruyendo el componente de la factura");
     }
 
     
