@@ -5,11 +5,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 
+// @RequestScope: El alcance de este bean es por petición, es decir, se crea una nueva instancia de Invoice para cada petición HTTP que se realice al servidor. Esto es útil cuando queremos que cada cliente tenga su propia factura durante la duración de la petición.
+// @JsonIgnoreProperties({"targetSource", "advisors"}): Esta anotación se utiliza para evitar problemas de serialización al convertir el objeto Invoice a JSON. En este caso, se ignoran las propiedades targetSource y advisors que son utilizadas internamente por Spring para la gestión de proxies y aspectos, y que no son relevantes para la representación JSON de la factura.
 @Component
+@RequestScope
+@JsonIgnoreProperties({"targetSource", "advisors"})
 public class Invoice {
 
     @Autowired
