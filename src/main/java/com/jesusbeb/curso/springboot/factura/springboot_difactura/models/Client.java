@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Component
 @RequestScope
-@JsonIgnoreProperties({"targetSource", "advisors"})
+//@JsonIgnoreProperties({"targetSource", "advisors"})
 public class Client {
 
     // Para los atributos name y lastname inyectamos los valores de las propiedades client.name y client.lastname respectivamente, que se encuentran en el archivo data.properties

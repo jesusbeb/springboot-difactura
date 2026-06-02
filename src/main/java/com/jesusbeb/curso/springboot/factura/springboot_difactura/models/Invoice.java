@@ -16,7 +16,7 @@ import jakarta.annotation.PreDestroy;
 // @JsonIgnoreProperties({"targetSource", "advisors"}): Esta anotación se utiliza para evitar problemas de serialización al convertir el objeto Invoice a JSON. En este caso, se ignoran las propiedades targetSource y advisors que son utilizadas internamente por Spring para la gestión de proxies y aspectos, y que no son relevantes para la representación JSON de la factura.
 @Component
 @RequestScope
-@JsonIgnoreProperties({"targetSource", "advisors"})
+//@JsonIgnoreProperties({"targetSource", "advisors"})
 public class Invoice {
 
     @Autowired
